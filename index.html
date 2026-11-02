@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>El cajero de las Operaciones Básicas</title>
+  <meta name="description" content="Juego de valor posicional: suma y resta con canje de unidades, decenas y centenas.">
+  <meta name="author" content="Prof. Eduardo Kantún Martínez">
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#1d4ed8">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="El Cajero">
+  <link rel="apple-touch-icon" href="icons/192.png">
+  <link rel="icon" href="icons/192.png" type="image/png">
+  <link rel="stylesheet" href="css/estilos.css">
+  <script type="module" src="js/pwa.js"></script>
+</head>
+<body>
+  <main>
+    <section class="tarjeta portada">
+      <img class="icono" src="icons/192.png" alt="" width="112" height="112">
+      <h1>El cajero de las Operaciones Básicas</h1>
+      <p>Un juego para practicar <strong>suma y resta con canje</strong>: 10 azules se cambian por 1 roja y 10 rojas por 1 amarilla.</p>
+      <div class="leyenda" aria-label="Valor de las fichas">
+        <span><i class="ficha ficha-amarilla" aria-hidden="true">100</i> amarilla = 100</span>
+        <span><i class="ficha ficha-roja" aria-hidden="true">10</i> roja = 10</span>
+        <span><i class="ficha ficha-azul" aria-hidden="true">1</i> azul = 1</span>
+      </div>
+      <p><a class="btn btn-grande" href="juego/">▶ Jugar</a></p>
+    </section>
+
+    <section class="tarjeta" aria-labelledby="titulo-instalar">
+      <h2 id="titulo-instalar">Instálalo en el celular</h2>
+      <p>Así queda un ícono en la pantalla y funciona <strong>sin internet</strong> después de la primera vez.</p>
+      <p><button type="button" class="btn btn-verde" id="btn-instalar" hidden>📲 Instalar</button></p>
+      <p id="ya-instalada" hidden>✓ Ya lo tienes instalado.</p>
+      <div id="aviso-ios" hidden>
+        <p><strong>En iPhone o iPad</strong> (usa Safari):</p>
+        <ol class="pasos">
+          <li>Toca el botón <strong>Compartir</strong> (el cuadro con una flecha hacia arriba ⬆️), abajo o arriba de la pantalla.</li>
+          <li>Desliza y toca <strong>Agregar a pantalla de inicio</strong>.</li>
+          <li>Toca <strong>Agregar</strong>. Aparecerá el ícono «El Cajero».</li>
+        </ol>
+      </div>
+      <details>
+        <summary><strong>¿No aparece el botón «Instalar»?</strong></summary>
+        <ol class="pasos">
+          <li><strong>Android (Chrome):</strong> toca el menú <strong>⋮</strong> (tres puntos, arriba a la derecha) y elige <strong>Instalar aplicación</strong> o <strong>Agregar a la pantalla principal</strong>.</li>
+          <li><strong>iPhone (Safari):</strong> sigue los pasos de Compartir ⬆️ → Agregar a pantalla de inicio.</li>
+          <li>Si nada de eso aparece, puedes jugar desde el navegador con el botón <strong>Jugar</strong>.</li>
+        </ol>
+      </details>
+    </section>
+
+    <section class="tarjeta" aria-labelledby="titulo-familias">
+      <h2 id="titulo-familias">Para las familias</h2>
+      <p>Cómo jugar en casa en 15 minutos, qué observar y cómo entregar el registro como evidencia.</p>
+      <p><a class="btn btn-secundario" href="guia.html">Leer la guía para familias</a></p>
+    </section>
+
+    <section class="tarjeta portada" aria-labelledby="titulo-compartir">
+      <h2 id="titulo-compartir">Compartir</h2>
+      <p>Escanea este código con la cámara para abrir el juego en otro celular.</p>
+      <img class="qr" src="icons/qr.png" alt="Código QR que abre https://lalitoelprofefulanito-dot.github.io/cajero-operaciones-basicas/" width="200" height="200">
+    </section>
+  </main>
+
+  <footer class="creditos">
+    <p><strong>El cajero de las Operaciones Básicas</strong> · versión 1.0</p>
+    <p>Basado en <em>Juega y Aprende. Propuesta para divertirse y trabajar en el aula: El cajero de 1 a 6</em>, SEP/RILEC (1991).</p>
+    <p>Adaptación al aula: 4° A, ciclo 2025–2026 (Plan de Estudios 2022, NEM).</p>
+    <p>Diseño y desarrollo: Prof. Eduardo Kantún Martínez · Escuela Primaria «Molino de Rosas» (CCT 09DPR1858N), Ciudad de México.</p>
+    <p>La app no pide ni guarda nombres; la partida se queda solo en tu dispositivo.</p>
+    <p>Código: MIT · Materiales didácticos: CC BY-NC-SA 4.0</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>El cajero de las Operaciones Básicas · Juego</title>
+  <meta name="description" content="Juego de valor posicional: suma y resta con canje de unidades, decenas y centenas.">
+  <meta name="author" content="Prof. Eduardo Kantún Martínez">
+  <link rel="manifest" href="../manifest.webmanifest">
+  <meta name="theme-color" content="#1d4ed8">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="El Cajero">
+  <link rel="apple-touch-icon" href="../icons/192.png">
+  <link rel="icon" href="../icons/192.png" type="image/png">
+  <link rel="stylesheet" href="../css/estilos.css">
+  <script type="module" src="../js/pwa.js"></script>
+  <script type="module" src="../js/interfaz.js"></script>
+</head>
+<body>
+  <header class="barra">
+    <a href="../" aria-label="Volver al inicio">← Inicio</a>
+    <h1>El Cajero</h1>
+    <button type="button" id="btn-leer" aria-label="Leer en voz alta" hidden>🔊</button>
+    <button type="button" id="btn-acerca">Acerca de</button>
+  </header>
+
+  <main>
+    <!-- ============ Configurar partida ============ -->
+    <section id="pantalla-inicio" aria-labelledby="titulo-inicio">
+      <h2 id="titulo-inicio">¿A qué vamos a jugar?</h2>
+
+      <div class="tarjeta" id="aviso-continuar" hidden>
+        <p><strong>Tienes una partida sin terminar.</strong></p>
+        <button type="button" class="btn btn-verde" id="btn-continuar">Continuar partida</button>
+      </div>
+
+      <form id="form-inicio" class="tarjeta">
+        <fieldset>
+          <legend>Juego</legend>
+          <label class="opcion"><input type="radio" name="modo" value="suma" checked>
+            <span><strong>Cajero de la Suma</strong><small>Empiezas en 0. Juntas fichas y canjeas. Meta: llegar a 100.</small></span></label>
+          <label class="opcion"><input type="radio" name="modo" value="resta">
+            <span><strong>Cajero de la Resta</strong><small>Empiezas con 1 amarilla (100). Pagas y desagrupas. Meta: llegar a 0.</small></span></label>
+        </fieldset>
+        <fieldset>
+          <legend>Jugadores</legend>
+          <label class="opcion"><input type="radio" name="jugadores" value="1" checked>
+            <span><strong>Solo</strong><small>Juegas y también haces de cajero: tú verificas tu total.</small></span></label>
+          <label class="opcion"><input type="radio" name="jugadores" value="2">
+            <span><strong>En familia (2 jugadores)</strong><small>Se turnan. Quien no tira es el cajero y verifica.</small></span></label>
+        </fieldset>
+        <fieldset>
+          <legend>Dados</legend>
+          <label class="opcion"><input type="radio" name="dados" value="2" checked>
+            <span><strong>2 dados</strong><small>Puntos del 2 al 12.</small></span></label>
+          <label class="opcion"><input type="radio" name="dados" value="1">
+            <span><strong>1 dado</strong><small>Puntos del 1 al 6. Partidas más largas, números más pequeños.</small></span></label>
+        </fieldset>
+        <fieldset>
+          <legend>Ayudas</legend>
+          <label class="opcion"><input type="checkbox" name="contar" checked>
+            <span><strong>Yo cuento los puntos de los dados</strong><small>Antes de recibir o pagar, escribes cuántos puntos salieron.</small></span></label>
+          <label class="opcion"><input type="checkbox" name="verificar" checked>
+            <span><strong>El cajero verifica el total</strong><small>Al final de cada turno se escribe cuánto hay. Queda en el registro.</small></span></label>
+        </fieldset>
+        <button type="submit" class="btn btn-grande">Empezar</button>
+      </form>
+    </section>
+
+    <!-- ============ Partida ============ -->
+    <section id="pantalla-juego" hidden aria-labelledby="titulo-juego">
+      <h2 id="titulo-juego" class="turno"></h2>
+      <div class="marcador"><span class="meta" id="meta"></span><span id="marcador" class="marcador" aria-label="Marcador"></span></div>
+      <p class="rol" id="rol-cajero"></p>
+
+      <div class="tablero" id="tablero">
+        <div class="columna col-amarillas" data-tipo="amarillas">
+          <h3>Amarillas<span class="valor-ficha">centenas · valen 100</span></h3>
+          <div class="fichas" aria-hidden="true"></div>
+          <div class="cuenta"></div>
+          <div class="cdu" hidden></div>
+        </div>
+        <div class="columna col-rojas" data-tipo="rojas">
+          <h3>Rojas<span class="valor-ficha">decenas · valen 10</span></h3>
+          <div class="fichas" aria-hidden="true"></div>
+          <div class="cuenta"></div>
+          <div class="cdu" hidden></div>
+        </div>
+        <div class="columna col-azules" data-tipo="azules">
+          <h3>Azules<span class="valor-ficha">unidades · valen 1</span></h3>
+          <div class="fichas" aria-hidden="true"></div>
+          <div class="cuenta"></div>
+          <div class="cdu" hidden></div>
+        </div>
+      </div>
+
+      <div class="dados" id="dados" aria-label="Dados"></div>
+      <p class="mensaje" id="mensaje" role="status" aria-live="polite"></p>
+      <div class="acciones" id="acciones"></div>
+
+      <label class="opcion"><input type="checkbox" id="ver-cdu">
+        <span><strong>Ver tablero C-D-U</strong><small>Muestra cuántas centenas, decenas y unidades hay en cada columna.</small></span></label>
+
+      <section class="tarjeta" aria-labelledby="titulo-registro">
+        <h2 id="titulo-registro">Registro de juego</h2>
+        <div class="pestanas" id="pestanas" role="tablist" hidden></div>
+        <div id="registro"></div>
+        <div class="exportar">
+          <input type="text" id="nombre-evidencia" maxlength="60" autocomplete="off"
+                 placeholder="Nombre para la evidencia (opcional)" aria-label="Nombre para la evidencia (opcional)">
+          <button type="button" class="btn" id="btn-exportar">📷 Guardar registro como imagen</button>
+          <small>El nombre solo se escribe en la imagen; la app no lo guarda.</small>
+        </div>
+      </section>
+
+      <button type="button" class="btn btn-secundario" id="btn-nueva">Nueva partida</button>
+    </section>
+  </main>
+
+  <dialog id="dlg-fin" aria-labelledby="fin-titulo">
+    <h2 id="fin-titulo"></h2>
+    <p id="fin-texto"></p>
+    <div class="dialogo-botones">
+      <button type="button" class="btn" data-accion="exportar">📷 Guardar registro</button>
+      <button type="button" class="btn btn-verde" data-accion="nueva">Jugar otra vez</button>
+      <button type="button" class="btn btn-secundario" data-accion="cerrar">Ver tablero</button>
+    </div>
+  </dialog>
+
+  <dialog id="dlg-acerca" aria-labelledby="acerca-titulo">
+    <h2 id="acerca-titulo">Acerca de</h2>
+    <p><strong>El cajero de las Operaciones Básicas</strong> · versión 1.0</p>
+    <p><strong>Estrategia didáctica original:</strong> SEP / RILEC (1991). <em>Juega y Aprende. Propuesta para divertirse y trabajar en el aula: El cajero de 1 a 6</em>.</p>
+    <p><strong>Adaptación al aula:</strong> tarea «Explicar las reglas del Juego del Cajero de Sumas y de Restas», 4° A, ciclo 2025–2026 (Plan de Estudios 2022, NEM).</p>
+    <p><strong>Diseño y desarrollo:</strong> Prof. Eduardo Kantún Martínez, Escuela Primaria «Molino de Rosas» (CCT 09DPR1858N), Ciudad de México.</p>
+    <p><strong>Privacidad:</strong> la partida se guarda solo en este dispositivo. No se envía nada a internet y no se guardan nombres.</p>
+    <p>Código: licencia MIT. Materiales didácticos: CC BY-NC-SA 4.0.</p>
+    <div class="dialogo-botones"><button type="button" class="btn" data-accion="cerrar">Cerrar</button></div>
+  </dialog>
+</body>
+</html>

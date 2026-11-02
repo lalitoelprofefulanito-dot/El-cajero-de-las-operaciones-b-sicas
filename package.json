@@ -1,0 +1,12 @@
+{
+  "name": "cajero-operaciones-basicas",
+  "version": "1.0.0",
+  "description": "El cajero de las Operaciones Básicas: juego web instalable (PWA) de valor posicional, suma y resta con canje.",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "test": "node --test tests/*.test.js"
+  },
+  "author": "Prof. Eduardo Kantún Martínez (Escuela Primaria \"Molino de Rosas\", CCT 09DPR1858N)",
+  "license": "MIT"
+}

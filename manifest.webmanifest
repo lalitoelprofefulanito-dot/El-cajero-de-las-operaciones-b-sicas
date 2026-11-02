@@ -1,0 +1,20 @@
+{
+  "id": "./juego/",
+  "name": "El cajero de las Operaciones Básicas",
+  "short_name": "El Cajero",
+  "description": "Juego de valor posicional: suma y resta con canje de unidades, decenas y centenas.",
+  "start_url": "./juego/",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#ffffff",
+  "theme_color": "#1d4ed8",
+  "lang": "es-MX",
+  "dir": "ltr",
+  "categories": ["education", "kids"],
+  "icons": [
+    { "src": "icons/192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icons/512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icons/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
