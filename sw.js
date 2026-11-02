@@ -5,7 +5,7 @@
  * IMPORTANTE: cada vez que cambies cualquier archivo del juego, sube el número
  * de VERSION (cajero-v1 → cajero-v2 …). Así los celulares descargan la versión nueva.
  */
-const VERSION = 'cajero-v1';
+const VERSION = 'cajero-v2';
 
 // Rutas relativas a este archivo: funcionan en https://USUARIO.github.io/cajero-operaciones-basicas/
 const ARCHIVOS = [

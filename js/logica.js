@@ -1,6 +1,6 @@
 /*
  * El cajero de las Operaciones Básicas — logica.js
- * Autor: Prof. Eduardo Kantún Martínez · Escuela Primaria "Molino de Rosas" (CCT 09DPR1858N), CDMX
+ * Autor: Prof. Eduardo Kantún Martínez
  * Basado en: SEP/RILEC (1991), "Juega y Aprende: El cajero de 1 a 6".
  * Licencia del código: MIT.
  *

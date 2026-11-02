@@ -1,6 +1,6 @@
 # Guía docente · El cajero de las Operaciones Básicas
 
-**Autor:** Prof. Eduardo Kantún Martínez · Escuela Primaria «Molino de Rosas», CDMX
+**Autor:** Prof. Eduardo Kantún Martínez
 **Basado en:** SEP/RILEC (1991), *Juega y Aprende: El cajero de 1 a 6*
 **Licencia:** CC BY-NC-SA 4.0
 

@@ -1,6 +1,6 @@
 # Instrumento de evaluación formativa · El cajero de las Operaciones Básicas
 
-**Autor:** Prof. Eduardo Kantún Martínez · Escuela Primaria «Molino de Rosas», CDMX · CC BY-NC-SA 4.0
+**Autor:** Prof. Eduardo Kantún Martínez · CC BY-NC-SA 4.0
 **Evidencia:** imagen del registro exportada desde la app + observación de una partida con material concreto.
 **Propósito:** saber qué apoyo necesita cada estudiante en este momento. No es una calificación.
 

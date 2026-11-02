@@ -165,7 +165,7 @@ function dibujarImagen(partida, nombre, fecha) {
   g.fillStyle = '#4b5563';
   g.font = '16px system-ui, Arial, sans-serif';
   g.fillText('Basado en «Juega y Aprende: El cajero de 1 a 6», SEP/RILEC (1991).', x0, alto - 46);
-  g.fillText('Adaptación y desarrollo: Prof. Eduardo Kantún Martínez · Esc. Prim. «Molino de Rosas», CDMX.', x0, alto - 22);
+  g.fillText('Diseño y desarrollo: Prof. Eduardo Kantún Martínez.', x0, alto - 22);
   return cv;
 }
 

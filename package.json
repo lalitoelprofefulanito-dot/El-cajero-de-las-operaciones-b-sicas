@@ -7,6 +7,6 @@
   "scripts": {
     "test": "node --test tests/*.test.js"
   },
-  "author": "Prof. Eduardo Kantún Martínez (Escuela Primaria \"Molino de Rosas\", CCT 09DPR1858N)",
+  "author": "Prof. Eduardo Kantún Martínez",
   "license": "MIT"
 }

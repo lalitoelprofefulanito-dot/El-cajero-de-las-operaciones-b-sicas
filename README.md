@@ -43,7 +43,7 @@ Abre `sw.js` y sube el número de `VERSION` (`cajero-v1` → `cajero-v2`). Si no
 - [`docs/guia-docente.md`](docs/guia-docente.md): razonamiento pedagógico, secuencia sugerida y adaptaciones.
 - [`docs/instrumento-evaluacion.md`](docs/instrumento-evaluacion.md): instrumento para leer el registro como evidencia.
 
-¿Quieres usarlo con tu grupo? Puedes hacer un *fork* (botón **Fork**, arriba a la derecha) y publicarlo con tu propio usuario. Cambia la URL del QR (`icons/qr.png`) y las líneas de crédito de adaptación si lo adaptas.
+¿Quieres usarlo con tu grupo? Puedes hacer un *fork* (botón **Fork**, arriba a la derecha) y publicarlo con tu propio usuario. Cambia la URL del QR (`icons/qr.png`) y, si lo adaptas, agrega tu crédito de adaptación junto al del autor.
 
 ## Para quien programa
 
@@ -66,8 +66,7 @@ tests/logica.test.js  pruebas de la lógica (casos 99+3, 100−4, 100−12, pago
 ## Créditos
 
 - **Estrategia didáctica original:** SEP / RILEC (1991). *Juega y Aprende. Propuesta para divertirse y trabajar en el aula: El cajero de 1 a 6*.
-- **Adaptación al aula:** tarea «Explicar las reglas del Juego del Cajero de Sumas y de Restas», 4° A, ciclo 2025–2026, Plan de Estudios 2022 (NEM).
-- **Diseño y desarrollo:** Prof. Eduardo Kantún Martínez, Escuela Primaria «Molino de Rosas» (CCT 09DPR1858N), Ciudad de México.
+- **Diseño y desarrollo:** Prof. Eduardo Kantún Martínez.
 
 La propuesta original de SEP/RILEC conserva sus derechos: aquí se cita como fuente y no se reproduce su texto.
 
